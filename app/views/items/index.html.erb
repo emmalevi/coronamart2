@@ -1,0 +1,56 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1584744982491-665216d95f8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60);">
+  <div class="container">
+    <h1>Welcome to Corona'Mart, world's first marketplace for Corona items.</h1>
+    <p>Stay healthy and wealthy, sell and book your items.</p>
+  </div>
+</div>
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12">
+      <h1>All our Corona Items</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <% if @query %>
+        <p>You searched for <strong><%= @query %></strong>. We found <%= @items.count %> items out of our <%= Item.count %> on our website.</p>
+      <% else %>
+        <p>All <%= Item.count %> items.</p>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <% @items.each do |item| %>
+      <div class="col-4">
+        <div class="item-card">
+          <div class="item-card-image" style="background-image: url('<%= item.picture_url %>')"></div>
+          <div class="item-card-content">
+            <div class="item-card-title">
+              <h4><%= item.name %></h4>
+            </div>
+            <p><%= item.description %></p>
+            <div class="flex">
+              <div class="flex ml-3">
+                <i class="material-icons mr-2">euro_symbol</i> <%= item.price %>
+              </div>
+            </div>
+          </div>
+          <div class="item-card-actions">
+            <%= link_to 'More info', item_path(item) %>
+            <% @item.each do |item| %>
+            <% if policy(item).edit? %>
+                <%= link_to 'Edit', edit_item_path(item), class: 'ml-3 text-warning' %>
+            <% elsif policy(item).destroy?%>
+              <%= link_to "Remove", item_path(item),
+                method: :delete,
+                data: { confirm: "Are you sure?" },
+                class: 'ml-3 text-danger' %>
+            <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
