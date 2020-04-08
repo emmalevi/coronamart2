@@ -15,7 +15,7 @@ end
 
 def new
   @item = Item.new
-  authorize @item
+  # authorize @item
 end
 
 def edit
