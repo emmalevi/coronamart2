@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-   get    "items",          to: "items#index"
+  get    "items",          to: "items#index"
 
   get    "items/new",      to: "items#new",  as: :new_item
   post   "items",          to: "items#create"
@@ -17,6 +17,5 @@ Rails.application.routes.draw do
 
   delete "items/:id",      to: "items#destroy"
 
-  get "users/:id",      to: "users#show", as: :user
-
+  resources :users
 end
