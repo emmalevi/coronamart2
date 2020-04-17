@@ -11,6 +11,9 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
   end
 
 def show
+      @item = Item.find(params[:id])
+      split = @item.name.split
+      @capitalized_name = split.map { |word| word.capitalize }.join(" ")
 end
 
 def new
@@ -23,10 +26,13 @@ end
 
 def create
   @item = Item.new(item_params)
+  @item.user = current_user
+
   @item.save
   if @item.save
     redirect_to item_path(@item)
   else
+    
     render :new
   end
 
@@ -43,6 +49,6 @@ def set_item
 end
 
 def item_params
-  params.require(:item).permit(:name, :description, :price, :picture_url)
+  params.require(:item).permit(:name, :description, :price, :photo)
   end
 end

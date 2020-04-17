@@ -5,30 +5,25 @@
   </div>
 </div>
 
-<div class="container mt-3">
-  <div class="row">
-    <div class="col-12">
-      <h1>All our Corona Items</h1>
-    </div>
+      <p><span id="banner-typed-text"></span></p>
   </div>
-  <div class="row">
-    <div class="col">
-      <% if @query %>
-        <p>You searched for <strong><%= @query %></strong>. We found <%= @items.count %> items out of our <%= Item.count %> on our website.</p>
-      <% else %>
-        <p>All <%= Item.count %> items.</p>
-      <% end %>
-    </div>
-  </div>
-  <div class="row">
+</div>
+<div class="container">
+  <div class="row no-gutters">
     <% @items.each do |item| %>
-      <div class="col-4">
+      <div class="col-12 col-sm-6 col-md-4">
+        <% if item.photo.attached? %>
+          <% background_url = cl_image_path item.photo.key, width: 400, height: 500, crop: :fill %>
+        <% else %>
+          <% background_url = 'https://source.unsplash.com/500x400/?item' %>
+        <% end %>
         <div class="item-card">
-          <div class="item-card-image" style="background-image: url('<%= item.picture_url %>')"></div>
-          <div class="item-card-content">
-            <div class="item-card-title">
-              <h4><%= item.name %></h4>
+          <div class="card-img" style= "background-image:url('<%= background_url %>')"></div>
+          <div class="item-card-body">
+            <div class="card_title_flex">
+              <h5><%= item.name.capitalize %></h5>
             </div>
+            <%= link_to "Book it", item_path(item), class: "btn btn-flat" %>
             <p><%= item.description %></p>
             <div class="flex">
               <div class="flex ml-3">
@@ -49,3 +44,8 @@
     <% end %>
   </div>
 </div>
+
+
+
+
+  
