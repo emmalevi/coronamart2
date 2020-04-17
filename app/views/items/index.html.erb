@@ -32,22 +32,17 @@
             <p><%= item.description %></p>
             <div class="flex">
               <div class="flex ml-3">
-                <i class="material-icons mr-2">euro_symbol</i> <%= item.price %>
+                <i class="material-icons mr-2">€</i><%= item.price %>
               </div>
             </div>
           </div>
           <div class="item-card-actions">
             <%= link_to 'More info', item_path(item) %>
-            <% @item.each do |item| %>
-            <% if policy(item).edit? %>
-                <%= link_to 'Edit', edit_item_path(item), class: 'ml-3 text-warning' %>
-            <% elsif policy(item).destroy?%>
-              <%= link_to "Remove", item_path(item),
+            <%= link_to 'Edit', edit_item_path(item), class: 'ml-3 text-warning' %>
+            <%= link_to "Remove", item_path(item),
                 method: :delete,
                 data: { confirm: "Are you sure?" },
                 class: 'ml-3 text-danger' %>
-            <% end %>
-            <% end %>
           </div>
         </div>
       </div>
