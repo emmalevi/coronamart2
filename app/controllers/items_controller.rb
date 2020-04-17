@@ -11,6 +11,9 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
   end
 
 def show
+      @item = Item.find(params[:id])
+      split = @cocktail.name.split
+      @capitalized_name = split.map { |word| word.capitalize }.join(" ")
 end
 
 def new

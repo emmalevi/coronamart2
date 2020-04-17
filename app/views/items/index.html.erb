@@ -36,18 +36,8 @@
               </div>
             </div>
           </div>
-          <div class="item-card-actions">
-            <%= link_to 'More info', item_path(item) %>
-            <% @item.each do |item| %>
-            <% if policy(item).edit? %>
-                <%= link_to 'Edit', edit_item_path(item), class: 'ml-3 text-warning' %>
-            <% elsif policy(item).destroy?%>
-              <%= link_to "Remove", item_path(item),
-                method: :delete,
-                data: { confirm: "Are you sure?" },
-                class: 'ml-3 text-danger' %>
-            <% end %>
-            <% end %>
+  
+    
           </div>
         </div>
       </div>
