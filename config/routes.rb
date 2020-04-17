@@ -17,4 +17,6 @@ Rails.application.routes.draw do
 
   delete "items/:id",      to: "items#destroy"
 
+  get "users/:id",      to: "users#show", as: :user
+
 end
