@@ -4,48 +4,38 @@
     <p>Stay healthy and wealthy, sell and book your items.</p>
   </div>
 </div>
-
-      <p><span id="banner-typed-text"></span></p>
-  </div>
+<p><span id="banner-typed-text"></span></p>
 </div>
+
+
 <div class="container">
-  <div class="row no-gutters">
-    <% @items.each do |item| %>
-      <div class="col-12 col-sm-6 col-md-4">
-        <% if item.photo.attached? %>
-          <% background_url = cl_image_path item.photo.key, width: 400, height: 500, crop: :fill %>
-        <% else %>
-          <% background_url = 'https://source.unsplash.com/500x400/?item' %>
-        <% end %>
-        <div class="item-card">
-          <div class="card-img" style= "background-image:url('<%= background_url %>')"></div>
-          <div class="item-card-body">
-            <div class="card_title_flex">
-              <h5><%= item.name.capitalize %></h5>
-            </div>
-            <%= link_to "Book it", item_path(item), class: "btn btn-flat" %>
-            <p><%= item.description %></p>
-            <div class="flex">
-              <div class="flex ml-3">
-                <i class="material-icons mr-2">€</i><%= item.price %>
-              </div>
-            </div>
-          </div>
-          <div class="item-card-actions">
-            <%= link_to 'More info', item_path(item) %>
-            <%= link_to 'Edit', edit_item_path(item), class: 'ml-3 text-warning' %>
-            <%= link_to "Remove", item_path(item),
-                method: :delete,
-                data: { confirm: "Are you sure?" },
-                class: 'ml-3 text-danger' %>
-          </div>
-        </div>
+<div class="card-deck">
+<% @items.each do |item| %>
+<div class="col-12 col-sm-6 col-md-4">
+  <% if item.photo.attached? %>
+  <% background_url = cl_image_path item.photo.key, width: 400, height: 500, crop: :fill %>
+  <% else %>
+  <% background_url = 'https://images.unsplash.com/photo-1585859537744-6e62df9b9a5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80' %>
+  <% end %>
+  <div class="item-card">
+    <div class="card-img" style= "background-image:url('<%= background_url %>')"></div>
+    <div class="item-card-body">
+      <div class="card_title_flex">
+        <h5><%= item.name.capitalize %></h5>
       </div>
-    <% end %>
+        <div class="card-footer">
+      <small class="text-muted">Book this item for $</i><%= item.price %></small>
+        </div>
+         <div class="item-card-actions">
+        <%= link_to 'Book item', item_path(item), class: "btn btn-dark btn-sm mr-md-3"%>
+        <%= link_to 'Edit', edit_item_path(item), class: "btn btn-dark btn-sm mr-md-3" %>
+        <%= link_to "Delete item", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+      </div>
+    </div>
   </div>
 </div>
+<% end %>
+</div>
+</div>
+  </div>
 
-
-
-
-  

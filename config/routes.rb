@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :items
 
   resources :users
+
+  get    "users", to: "users#dashboard", as: :dashboard
 end
