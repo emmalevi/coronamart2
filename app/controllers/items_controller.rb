@@ -12,6 +12,7 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
 
 def show
       @item = Item.find(params[:id])
+      @user = current_user.id
       split = @item.name.split
       @capitalized_name = split.map { |word| word.capitalize }.join(" ")
 end
