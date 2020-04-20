@@ -5,40 +5,42 @@
   </div>
 </div>
 <p><span id="banner-typed-text"></span></p>
-</div>
 
 
 <div class="container">
-<div class="card-deck">
-<% @items.each do |item| %>
-<div class="d-flex">
-  <% if item.photo.attached? %>
-  <% background_url = cl_image_path item.photo.key, width: 400, height: 500, crop: :fill %>
-  <% else %>
-  <% background_url = 'https://images.unsplash.com/photo-1585859537744-6e62df9b9a5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80' %>
-  <% end %>
-  <div class="item-card">
-    <div class="card-img" style= "background-image:url('<%= background_url %>')"></div>
-    <div class="item-card-body">
-      <%= cl_image_tag(current_user.photo.key, class: "avatar avatar-big dropdown-toggle ml-4") %>
-      <div class="card_title_flex">
-        <h5><%= item.name.capitalize %></h5>
-      </div>
-        <div class="card-footer">
-          <p class="text-muted"><i class="fas fa-shopping-cart"></i> $<%= item.price %> a day</small>
+  <div class="card-deck">
+    <% @items.each do |item| %>
+      <div class="d-flex">
+        <% if item.photo.attached? %>
+          <% background_url = cl_image_path item.photo.key, width: 400, height: 500, crop: :fill %>
+        <% else %>
+          <% background_url = 'https://images.unsplash.com/photo-1585859537744-6e62df9b9a5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80' %>
+        <% end %>
+        <div class="item-card">
+          <div class="card-img" style= "background-image:url('<%= background_url %>')"></div>
+          <div class="item-card-body">
+            <% if current_user && current_user.photo.attached? %>
+              <%= cl_image_tag(current_user.photo.key, class: "avatar avatar-big dropdown-toggle ml-4") %>
+            <% else %>
+              <%= cl_image_tag("https://cdn1.img.sputniknews.com/img/107694/66/1076946614_0:23:1200:698_1200x0_80_0_1_1d5801dd7439fba2fd72a59ee127e68e.jpg", class: "avatar avatar-big dropdown-toggle ml-4") %>
+            <% end %>
+            <div class="card_title_flex">
+              <h5><%= item.name.capitalize %></h5>
+            </div>
+            <div class="card-footer">
+              <p class="text-muted"><i class="fas fa-shopping-cart"></i> $<%= item.price %> a day</small>
+            </div>
+            <div class="item-card-actions">
+              <%= link_to 'Book item', item_path(item), class: "btn mr-md-3"%>
+              <%#= link_to 'Edit', edit_item_path(item), class: "btn btn-dark btn-sm mr-md-3" %>
+              <%#= link_to "Delete item", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+            </div>
+          </div>
         </div>
-         <div class="item-card-actions">
-          <%= link_to 'Book item', item_path(item), class: "btn mr-md-3"%>
-          <%#= link_to 'Edit', edit_item_path(item), class: "btn btn-dark btn-sm mr-md-3" %>
-          <%#= link_to "Delete item", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>
-<% end %>
-</div>
-</div>
-  </div>
 
 
 
