@@ -1,11 +1,9 @@
 .avatar {
-  width: 45px;
+  width: 40px;
   border-radius: 50%;
+  height: 40px;
 }
-.avatar-large {
-  width: 56px;
-  border-radius: 50%;
-}
+
 .avatar-bordered {
   width: 40px;
   border-radius: 50%;
@@ -25,6 +23,7 @@
   top: -29px;
   right: 17px;
   width: 58px;
+  height: 58px;
   border-radius: 50%;
   border: white 2px solid;
 }
