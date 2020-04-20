@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
  def index
     if params[:query].present?
@@ -10,30 +10,32 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
     end
   end
 
-def show
-      @item = Item.find(params[:id])
-      split = @item.name.split
-      @capitalized_name = split.map { |word| word.capitalize }.join(" ")
-end
+  def show
+        @item = Item.find(params[:id])
+        @booking = Booking.new
+        split = @item.name.split
+        @capitalized_name = split.map { |word| word.capitalize }.join(" ")
+  end
 
-def new
-  @item = Item.new
-  # authorize @item
-end
+  def new
+    @item = Item.new
+    # authorize @item
+  end
 
-def edit
-end
+  def edit
+  end
 
-def create
-  @item = Item.new(item_params)
-  @item.user = current_user
+  def create
+    @item = Item.new(item_params)
+    @item.user = current_user
 
-  @item.save
-  if @item.save
-    redirect_to item_path(@item)
-  else
-    
-    render :new
+    @item.save
+    if @item.save
+      redirect_to item_path(@item)
+    else
+
+      render :new
+    end
   end
 
   def destroy
@@ -41,14 +43,13 @@ def create
     redirect_to items_path
   end
 
-end
 
-private
-def set_item
-  @item= Item.find(params[:id])
-end
+  private
+  def set_item
+    @item= Item.find(params[:id])
+  end
 
-def item_params
-  params.require(:item).permit(:name, :description, :price, :photo)
+  def item_params
+    params.require(:item).permit(:name, :description, :price, :photo)
   end
 end
