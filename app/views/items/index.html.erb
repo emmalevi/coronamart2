@@ -22,7 +22,7 @@
             <% if current_user && current_user.photo.attached? %>
               <%= cl_image_tag(current_user.photo.key, class: "avatar avatar-big dropdown-toggle ml-4") %>
             <% else %>
-              <%= cl_image_tag("https://cdn1.img.sputniknews.com/img/107694/66/1076946614_0:23:1200:698_1200x0_80_0_1_1d5801dd7439fba2fd72a59ee127e68e.jpg", class: "avatar avatar-big dropdown-toggle ml-4") %>
+              <%= cl_image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQELeEyiMdyGS4I3hdD6rQ-1IS3zkwA7hAB0LTayKpG0wEUVBjdyA&s", class: "avatar avatar-big dropdown-toggle ml-4") %>
             <% end %>
             <div class="card_title_flex">
               <h5><%= item.name.capitalize %></h5>
