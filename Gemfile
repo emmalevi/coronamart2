@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'pundit'
+gem 'geocoder'
 gem "font-awesome-rails"
 
 gem 'dotenv-rails', groups: [:development, :test]

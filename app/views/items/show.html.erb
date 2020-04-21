@@ -14,26 +14,28 @@
 <div class="banner3" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.4)), url('<%= cl_image_path @item.photo.key, height: 300, width: 400, crop: :fill %>')">
 </div>
 <div class="container margin-top-negative">
-	<div class="row">
-		<div class="col-8">
-			<div class="item-show-card">
-				<h4 class="item-show-address"><%= @item.description %></h4>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="card-title p-3 mb-2 bg-white text-dark border border-grey mb-3 sticky-top">
-				<p class="mb-3 justify-content-center d-flex align-items-center">
-					<strong>Book Now for $<%=@item.price %> per day</strong>
-				</p>
-				<%= simple_form_for ([@item, @booking]) do |f| %>
-				<%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-				<%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-				<div class="d-flex border-bottom pt-1 pb-2 justify-content-between">
-					<p><strong>Total price </strong></p>
-					<p><strong>$<%= @item.price %></strong></p>
-				</div>
-				<%= f.submit "Request Booking", class: "btn btn-dark", style: "width: 100%" %>
-				<% end %>
-			</div>
-		</div>
-	</div>
+ <div class="item-show-card">
+  <h4 class="item-show-address"><%= @item.description %></h4>
+</div>
+</div>
+   <div class="container">
+        <img id="map" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoiZW1tYWxldmkiLCJhIjoiY2s5YWJ3dTVwMGJ2OTNncncxcGE5OW1iMiJ9.THlvM93kf_gn9iCbikAF4A'>
+      </div>
+<div class="col-md-4">
+ <div class="card-title p-3 mb-2 bg-white text-dark border border-grey mb-3 sticky-top">
+  <p class="mb-3 justify-content-center d-flex align-items-center">
+   <strong>Book Now for $<%=@item.price %> per day</strong>
+ </p>
+ <%= simple_form_for ([@item, @booking]) do |f| %>
+ <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+ <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+ <div class="d-flex border-bottom pt-1 pb-2 justify-content-between">
+   <p><strong>Total price </strong></p>
+   <p><strong>$<%= @item.price %></strong></p>
+ </div>
+ <%= f.submit "Request Booking", class: "btn btn-dark", style: "width: 100%" %>
+ <% end %>
+</div>
+</div>
+</div>
+
