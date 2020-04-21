@@ -14,3 +14,9 @@
 .form-inline > * {
    margin:5px 3px;
 }
+
+#map {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
