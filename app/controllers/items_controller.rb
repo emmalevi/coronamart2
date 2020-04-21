@@ -28,6 +28,12 @@ end
   end
 
   def edit
+    @item= Item.find(params[:id])
+  end
+
+  def update
+    @item.update(item_params)
+    redirect_to item_path(@item)
   end
 
   def create
