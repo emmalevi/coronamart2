@@ -38,3 +38,21 @@
       </div>
     </div>
   </div>
+
+<div class="col-3 booking-form-wrapper">
+  <div class="booking-form">
+    <h3>$
+      <span id='hourPrice'><%= @item.price %></span>
+      <span>per hour</span>
+    </h3>
+    <%= simple_form_for ([@item, @booking]) do |f| %>
+      <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <div class='d-flex justify-content-between px-4'>
+        <p>Total price:</p> <span id='totalPrice'>$<%= @item.price %></span>
+      </div>
+      <%= f.submit "Book Now!", class: "btn btn-primary btn-block" %>
+    <% end %>
+    <!-- <button id="new-booking-request-alert" class="btn btn-primary btn-block btn-custom">Request Booking!</button> -->
+  </div>
+</div>

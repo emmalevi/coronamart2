@@ -1,41 +1,46 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1584744982491-665216d95f8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60);">
+<div class="banner" style=>
   <div class="container">
     <h1>Welcome to Corona'Mart, world's first marketplace for Corona items.</h1>
     <p>Stay healthy and wealthy, sell and book your items.</p>
   </div>
 </div>
 <p><span id="banner-typed-text"></span></p>
-</div>
 
 
 <div class="container">
-<div class="card-deck">
-<% @items.each do |item| %>
-<div class="col-12 col-sm-6 col-md-4">
-  <% if item.photo.attached? %>
-  <% background_url = cl_image_path item.photo.key, width: 400, height: 500, crop: :fill %>
-  <% else %>
-  <% background_url = 'https://images.unsplash.com/photo-1585859537744-6e62df9b9a5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80' %>
-  <% end %>
-  <div class="item-card">
-    <div class="card-img" style= "background-image:url('<%= background_url %>')"></div>
-    <div class="item-card-body">
-      <div class="card_title_flex">
-        <h5><%= item.name.capitalize %></h5>
-      </div>
-        <div class="card-footer">
-      <small class="text-muted">Book this item for $</i><%= item.price %></small>
+  <div class="card-deck">
+    <% @items.each do |item| %>
+      <div class="d-flex">
+        <% if item.photo.attached? %>
+          <% background_url = cl_image_path item.photo.key, width: 400, height: 500, crop: :fill %>
+        <% else %>
+          <% background_url = 'https://images.unsplash.com/photo-1585859537744-6e62df9b9a5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80' %>
+        <% end %>
+        <div class="item-card">
+          <div class="card-img" style= "background-image:url('<%= background_url %>')"></div>
+          <div class="item-card-body">
+            <% if current_user && current_user.photo.attached? %>
+              <%= cl_image_tag(current_user.photo.key, class: "avatar avatar-big dropdown-toggle ml-4") %>
+            <% else %>
+              <%= cl_image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQELeEyiMdyGS4I3hdD6rQ-1IS3zkwA7hAB0LTayKpG0wEUVBjdyA&s", class: "avatar avatar-big dropdown-toggle ml-4") %>
+            <% end %>
+            <div class="card_title_flex">
+              <h5><%= item.name.capitalize %></h5>
+            </div>
+            <div class="card-footer">
+              <p class="text-muted"><i class="fas fa-shopping-cart"></i> $<%= item.price %> a day</small>
+            </div>
+            <div class="item-card-actions">
+              <%= link_to 'Book item', item_path(item), class: "btn mr-md-3"%>
+              <%#= link_to 'Edit', edit_item_path(item), class: "btn btn-dark btn-sm mr-md-3" %>
+              <%#= link_to "Delete item", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+            </div>
+          </div>
         </div>
-         <div class="item-card-actions">
-        <%= link_to 'Book item', item_path(item), class: "btn btn-dark btn-sm mr-md-3"%>
-        <%= link_to 'Edit', edit_item_path(item), class: "btn btn-dark btn-sm mr-md-3" %>
-        <%= link_to "Delete item", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>
-<% end %>
-</div>
-</div>
-  </div>
+
+
 

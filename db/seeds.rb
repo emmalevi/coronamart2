@@ -111,4 +111,5 @@ Booking.create!(user: user5, item: item2)
 
 Booking.create!(user: user2, item: item5)
 
+
 puts "Seed completed!"
