@@ -12,7 +12,7 @@
     <div class="col-md-4">
       <div class="card-title p-3 mb-2 bg-white text-dark border border-grey mb-3 sticky-top">
         <p class="mb-3 justify-content-center d-flex align-items-center">
-        <% if @item.user_id != @user%>
+        <% if @item.user_id != @user.id%>
          <%= link_to 'Book this item', dashboard_path(@item), class: "btn btn-dark" %>
          <% else %>
          <%= link_to 'Edit your item', dashboard_path(@item), class: "btn btn-dark" %>
