@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :home
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
  def index
@@ -10,12 +11,16 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-        @item = Item.find(params[:id])
-        @booking = Booking.new
-        split = @item.name.split
-        @capitalized_name = split.map { |word| word.capitalize }.join(" ")
-  end
+
+def show
+      @item = Item.find(params[:id])
+      @booking = Booking.new
+      @user = current_user
+      split = @item.name.split
+      @capitalized_name = split.map { |word| word.capitalize }.join(" ")
+end
+
+
 
   def new
     @item = Item.new

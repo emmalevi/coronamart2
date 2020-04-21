@@ -11,7 +11,13 @@
     </div>
     <div class="col-md-4">
       <div class="card-title p-3 mb-2 bg-white text-dark border border-grey mb-3 sticky-top">
-        <p class="mb-3 justify-content-center d-flex align-items-center"><strong>Book this item</strong></p>
+        <p class="mb-3 justify-content-center d-flex align-items-center">
+        <% if @item.user_id != @user.id%>
+         <%= link_to 'Book this item', dashboard_path(@item), class: "btn btn-dark" %>
+         <% else %>
+         <%= link_to 'Edit your item', dashboard_path(@item), class: "btn btn-dark" %>
+          <% end %>
+        </p>
         <div class="d-flex justify-content-between">
           <form action="">
             <div class="input-group">
@@ -25,8 +31,8 @@
           </form>
         </div>
         <div class="d-flex border-top mt-3 pt-3 justify-content-between">
-          <p><strong>Total</strong></p>
-          <p><strong>£17.85</strong></p>
+          <p><strong>Total $</strong></p>
+          <p><strong><%= @item.price %></strong></p>
         </div>
         <input type="submit" value="Book" class="btn btn-dark" style="width: 100%">
       </div>
