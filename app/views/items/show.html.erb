@@ -15,7 +15,7 @@
         <% if @item.user_id != @user.id%>
          <%= link_to 'Book this item', dashboard_path(@item), class: "btn btn-dark" %>
          <% else %>
-         <%= link_to 'Edit your item', dashboard_path(@item), class: "btn btn-dark" %>
+         <%= link_to 'Edit your item', edit_item_path(@item), class: "btn btn-dark" %>
           <% end %>
         </p>
         <div class="d-flex justify-content-between">
