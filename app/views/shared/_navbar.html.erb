@@ -5,7 +5,7 @@
     </div>
     <nav class="nav-menu d-none d-lg-block">
       <ul>
-        <li class="active"><a href="#hero">Home</a></li>
+        <li class="active"> <%= link_to "Home", root_path %> </li>
 
         <% if user_signed_in? %>
         <li> <%= link_to "Add an item", new_item_path %> </li>
