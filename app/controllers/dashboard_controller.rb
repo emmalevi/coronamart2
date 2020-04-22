@@ -3,6 +3,7 @@ class DashboardController < ApplicationController
 		email = current_user.email.split('@')
 	  @username = email.first
 	  @items = current_user.items
+    @bookings = current_user.bookings
   end
 
     def update
