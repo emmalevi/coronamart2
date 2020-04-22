@@ -1,10 +1,16 @@
+
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="container text-center text-md-left" data-aos="fade-up">
-      <h1>Welcome to CoronaMart</h1>
-      <h2>world's first marketplace for Corona items.</h2>
-      <a href="#about" class="btn-get-started scrollto">Get Started</a>
+  <section id="banner" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="container text-center text-md-left">
+      <h1>World's first marketplace for Corona items.</h1>
     </div>
+     <!-- <a href="#about" class="btn-get-started scrollto">Get Started</a> -->
+         <form>
+        <input class="btn-get-started scrollto" name="query" type="search" placeholder="Face mask" aria-label="Search" value="<%= params[:query] %>">
+          <button class="btn btn-dark" type="submit">
+            Search
+          </button>
+        </form>
   </section><!-- End Hero -->
 
   <main id="main">
@@ -14,7 +20,7 @@
       <div class="container">
 
         <div class="row">
-          <div class="col-xl-6 col-lg-7" data-aos="fade-right">
+          <div class="col-xl-6 col-lg-7">
             <img src="assets/img/about-img.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-xl-6 col-lg-5 pt-5 pt-lg-0">
@@ -728,15 +734,6 @@
     </div>
   </footer><!-- End Footer -->
 
-
-
-<div class="banner" style=>
-  <div class="container">
-    <h1>Welcome to Corona'Mart, world's first marketplace for Corona items.</h1>
-    <p id="title2">Stay healthy and wealthy, sell and book your items.</p>
-  </div>
-</div>
-<p><span id="banner-typed-text"></span></p>
 
 
 <div class="container">

@@ -1,153 +1,76 @@
-.banner {
+#banner {
   background-size: cover;
-  background-position: center;
+  // background-position: center;
   padding: 200px 0;
-  height: calc(100vh - 67px);
-  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
-                    url(https://images.unsplash.com/photo-1584744982491-665216d95f8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60)
+  background-image: url(https://images.unsplash.com/photo-1585421514738-01798e348b17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);
+  height: calc(100vh);
 }
 
-.banner h1 {
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 42px;
-  font-family: $title;
-  font-weight: bold;
+#banner .container {
+  z-index: 2;
 }
 
-.banner p {
-  font-size: 15px;
-  color: white;
-  opacity: .7;
-  font-family: $title;
-  margin-top: 15px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
-
-
-.home-banner {
-  background-image: url(https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80);
-  background-size: cover;
-  height: 100vh;
-  color: #eee;
-  text-align: center;
-  padding-top: 40vh;
-}
-
-#title1 {
-  font-family: "Helvetica";
-  font-size: 50px;
-  color: white;
-
-}
-
-#title2 {
-  font-family: "Roboto";
-  font-size: 20px;
-  color: white;
-
-}
-
-
-.banner2 {
- background-size: cover;
-  background-position: center;
-  height: 400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin-bottom: 30px;
-}
-
-.banner3 {
- background-size: cover;
-  background-position: center;
-  height: 300px;
-  display: flex;
-  margin-right: 140px;
-  margin-left: 140px;
-  margin-bottom: 50px;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin-bottom: 30px;
-}
-
-#banner-typed-text {
-  color: white;
-}
-
-#photo {
-  top: 0;
-  left: 0;
-  /* Preserve aspet ratio */
-  min-width: 100%;
-  min-height: 100%;
-}
-
-#title {
-  font-family: "Pinyon Script", serif;
-  color: #FFA33E;
-  margin: 0;
-  padding: 0;
-  font-size: 110px;
-}
-
-#subtitle {
-  font-family: "Pinyon Script", serif;
-  text-transform: uppercase;
-  color: #ffffff;
-  margin: 0;
-  padding: 0;
-  letter-spacing: .05em;
-  font-size: 80px;
-  position: relative;
-  top: -30px;
-  left: 50px;
+#banner h1 {
+  // margin: 0 0 10px 0;
+  font-size: 35px;
   font-weight: 700;
-  line-height: 40px;
+  color: black;
+  margin-top: -80px;
+  margin-left: 195px;
+  margin-bottom: 200px;
 }
 
-.banner h1 {
-  margin: 0;
+#banner h2 {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 35px;
+  font-size: 24px;
+}
+
+#banner .btn-get-started {
+  font-family: "Raleway", sans-serif;
+  // text-transform: uppercase;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 6px 20px;
+  border-radius: 4px;
+  transition: 0.5s;
+  border: 2px solid black;
+  color: black;
+  margin-top: 50px;
+  width:180px;
+}
+
+#banner .btn-get-started:hover {
+  border-color: #1bac91;
+  background: #1bac91;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 60px;
-  font-weight: bold;
-   padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  position: relative;
 }
 
-.banner p {
-  font-size: 32px;
-  color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+@media (min-width: 1024px) {
+  #hero {
+    background-attachment: fixed;
+  }
+}
+
+@media (max-width: 992px) {
+  #hero {
+    margin-top: 60px;
+    height: calc(100vh - 60px);
+  }
+}
+
+@media (max-width: 768px) {
+  #hero h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  #hero h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
 }
 
 
-h2 {
-    font-family: "Pinyon Script", serif;
-}
-
-h3 {
-    font-family: "Roboto";
-    font-size: 30px;
-    font-weight: bold;
-}
-
-h4 {
-    font-family: "Roboto";
-    font-size: 20px;
-    font-weight: bold;
-}
