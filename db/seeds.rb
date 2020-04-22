@@ -89,6 +89,7 @@ item6 = Item.create!(
 item6_photo = URI.open('https://images.unsplash.com/photo-1586074121235-72c31d897625?ixlib=rb-1.2.1&auto=format&fit=crop&w=1349&q=80')
 item6.photo.attach(io: item6_photo, filename: 'item6.jpg' , content_type: 'image/jpg')
 
+puts "done with users and items"
 
 #10 bookings
 

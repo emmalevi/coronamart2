@@ -1,11 +1,11 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon border-bottom">
-  <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://pngimg.com/uploads/virus/virus_PNG38.png"%>
-    <% end %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
+ <header id="header" class="fixed-top">
+  <div class="container d-flex space-around">
+    <div class="logo mr-auto">
+      <h1 class="text-light"><%= link_to "CORONAMART", root_path %></h1>
+    </div>
+    <nav class="nav-menu d-none d-lg-block">
+      <ul>
+        <li class="active"><a href="#hero">Home</a></li>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -36,10 +36,9 @@
           </div>
         </li>
       <% else %>
-        <li class="btn">
-          <%= link_to "Login", new_user_session_path, class: "btn btn-dark" %>
-        </li>
+      <li> <%= link_to "Login", new_user_session_path %> </li>
       <% end %>
     </ul>
-  </div>
+  </nav>
 </div>
+</header>

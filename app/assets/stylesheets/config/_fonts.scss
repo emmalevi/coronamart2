@@ -1,9 +1,12 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans|Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Open-Sans";
+$body-font: "Roboto", "Helvetica";
+$headers-font: "Roboto";
+$title: "Oswald";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
