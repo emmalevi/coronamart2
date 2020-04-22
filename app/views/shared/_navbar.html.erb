@@ -1,45 +1,29 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon border-bottom">
-  <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://pngimg.com/uploads/virus/virus_PNG38.png"%>
-    <% end %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+ <header id="header" class="fixed-top">
+  <div class="container d-flex space-around">
+    <div class="logo mr-auto">
+      <h1 class="text-light"><%= link_to "CORONAMART", root_path %></h1>
+    </div>
+    <nav class="nav-menu d-none d-lg-block">
+      <ul>
+        <li class="active"><a href="#hero">Home</a></li>
 
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control " name="query" type="search" placeholder="Hand sanitizer" aria-label="Search" value="<%= params[:query] %>">
-          <button class="btn btn-dark" type="submit">
-            Search
-            <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z" clip-rule="evenodd"/>
-              <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" clip-rule="evenodd"/>
-            </svg>
-          </button>
-        </form>
-        <li class="form-inline my-2 my-lg-0 ml-4">
-          <%= link_to "Add an item", new_item_path, class: "btn btn-dark" %>
-        </li>
-        <li class="nav-item dropdown">
-        <li class="nav-item dropdown">
-          <% if current_user.photo.attached? %>
-            <%= cl_image_tag(current_user.photo.key, class: "avatar dropdown-toggle ml-4", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
-          <% else %>
-            <%= image_tag "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png", class: "avatar dropdown-toggle ml-4", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% end %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
+        <% if user_signed_in? %>
+        <li> <%= link_to "Add an item", new_item_path %> </li>
+        <li class="drop-down">
+         <% if current_user.photo.attached? %>
+         <%= cl_image_tag(current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+         <% else %>
+         <%= image_tag "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+         <% end %>
+         <ul>
+          <li> <a><%= link_to "My dashboard", dashboard_path %> </a></li>
+          <li><a>  <%= link_to "Log out", destroy_user_session_path, method: :delete %></a></li>
+        </ul>
+      </li>
       <% else %>
-        <li class="btn">
-          <%= link_to "Login", new_user_session_path, class: "btn btn-dark" %>
-        </li>
+      <li> <%= link_to "Login", new_user_session_path %> </li>
       <% end %>
     </ul>
-  </div>
+  </nav>
 </div>
+</header>

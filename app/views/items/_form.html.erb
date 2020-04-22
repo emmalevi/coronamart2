@@ -1,5 +1,3 @@
-<div class="container mt-5">
-  <div>
     <%= simple_form_for(@item) do |f| %>
       <%= f.input :name %>
       <%= f.input :description %>
@@ -8,7 +6,5 @@
       <%= f.button :submit, class: 'btn btn-dark' %>
     <% end %>
   </div>
-  <div class="text-center">
-    <%= link_to "Back to all items", items_path, class: "btn btn-dark"%>
-  </div>
-</div>
+
+
