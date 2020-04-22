@@ -8,13 +8,6 @@ class ItemsController < ApplicationController
       @items = Item.where("name iLike '%#{params[:query]}%'")
     else
       @items = Item.all
-    end
-    @items = Item.geocoded
-    @markers = @items.map do |item|
-      {
-        lat: item.latitude,
-        lng: item.longitude
-      }
   end
 end
 
@@ -26,7 +19,6 @@ def show
       split = @item.name.split
       @capitalized_name = split.map { |word| word.capitalize }.join(" ")
 end
-
 
 
   def new

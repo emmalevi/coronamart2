@@ -1,5 +1,5 @@
  <header id="header" class="fixed-top">
-  <div class="container d-flex">
+  <div class="container d-flex space-around">
     <div class="logo mr-auto">
       <h1 class="text-light"><%= link_to "CORONAMART", root_path %></h1>
     </div>
@@ -9,19 +9,21 @@
 
         <% if user_signed_in? %>
         <li> <%= link_to "Add an item", new_item_path %> </li>
-          <% if current_user.photo.attached? %>
-            <%= cl_image_tag(current_user.photo.key, class: "avatar dropdown-toggle ml-4", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
-          <% else %>
-            <%= image_tag "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png", class: "avatar dropdown-toggle ml-4", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% end %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "My dashboard", dashboard_path, class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        <% else %>
-        <li> <%= link_to "Login", new_user_session_path %> </li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
+        <li class="drop-down">
+         <% if current_user.photo.attached? %>
+         <%= cl_image_tag(current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+         <% else %>
+         <%= image_tag "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+         <% end %>
+         <ul>
+          <li> <a><%= link_to "My dashboard", dashboard_path %> </a></li>
+          <li><a>  <%= link_to "Log out", destroy_user_session_path, method: :delete %></a></li>
+        </ul>
+      </li>
+      <% else %>
+      <li> <%= link_to "Login", new_user_session_path %> </li>
+      <% end %>
+    </ul>
+  </nav>
+</div>
 </header>
