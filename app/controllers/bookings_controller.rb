@@ -10,9 +10,10 @@ class BookingsController < ApplicationController
     @booking.item = @item
 
     if @booking.save
-      redirect_to dashboard_path
+      redirect_to dashboard_index_path
     else
-      puts "boob"
+      @booking = Booking.new
+      render "items/show"
     end
   end
 

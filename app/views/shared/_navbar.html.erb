@@ -7,7 +7,7 @@
       <ul>
         <li class="active"> <%= link_to "Home", root_path %> </li>
 
-        <% if user_signed_in? %>
+    <% if user_signed_in? %>
         <li> <%= link_to "Add an item", new_item_path %> </li>
         <li class="drop-down">
          <% if current_user.photo.attached? %>
@@ -16,7 +16,7 @@
          <%= image_tag "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
          <% end %>
          <ul>
-          <li> <a><%= link_to "My dashboard", dashboard_path %> </a></li>
+          <li> <a><%= link_to "My dashboard", dashboard_index_path %> </a></li>
           <li><a>  <%= link_to "Log out", destroy_user_session_path, method: :delete %></a></li>
         </ul>
       </li>
