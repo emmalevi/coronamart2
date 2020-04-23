@@ -50,6 +50,9 @@
     </div>
   </div>
 
+ <div class="section-title-map">
+     <iframe style="border:0; width: 400px; height: 800px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+
   <div class="main-container d-flex justify-content-space">
     <!-- <div class="container"> -->
       <div class="col-md-3 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-2">
@@ -75,7 +78,7 @@
                 <p class="text-muted"><i class="fas fa-shopping-cart"></i> $<%= item.price %> a day</small>
                 </div>
                 <div class="item-card-actions">
-                  <%= link_to 'Book item', item_path(item), class: "btn btn-dark btn-sm"%>
+                  <%= link_to 'Book item', item_path(item), id: "submitsm"%>
                   <%#= link_to 'Edit', edit_item_path(item), class: "btn btn-dark btn-sm mr-md-3" %>
                   <%#= link_to "Delete item", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
                 </div>
@@ -86,25 +89,11 @@
         </div>
       </div>
     </div>
-
-  <div class="col-lg-4 justify-content-end">
-      <iframe style="border:10; width: 70%; height: 100vh;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
-    </div>
+        </div>
 
   </div>
 </section><!-- End Services Section -->
 
 </main><!-- End #main -->
 
-<!-- ======= Footer ======= -->
-<footer id="footer">
-  <div class="footer-top">
-    <div class="container">
-      <div class="col-md-6 justify-content-center">
-        <div class="footer-info">
-          <p>&copy; Copyright <strong><span>CoronaMart</span></strong>. All Rights Reserved</p>
-        </div>
-      </div>
-
-    </footer><!-- End Footer -->
-
+    <%= render 'shared/footer' %>

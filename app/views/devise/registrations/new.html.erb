@@ -1,8 +1,16 @@
+<section id="steps" class="steps section-bg">
+  <div class="container">
+      <div class="col-lg-4 mt-5">
+      </div>
+  </div>
+</section>
+
+
 <div class="container pt-3">
       <div class="row justify-content-center">
         <div class="col-12 col-md-6 col-lg-6">
 
-<h2 class="mb-4">Welcome to Corona'Mart</h2>
+<h2 class="mb-4">Welcome to CoronaMart</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -27,12 +35,15 @@
 
   </div>
 
-  <div class="form-actions btn btn-dark mb-4">
-    <%= f.button :submit, "Sign up" %>
-  </div>
+    <%= f.button :submit, "Sign up", id:"submit" %>
 <% end %>
+
+ <div class="col-lg-4 mt-5">
+      </div>
 
 <%= render "devise/shared/links" %>
 
 </div>
 </div>
+
+
