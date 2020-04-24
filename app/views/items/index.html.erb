@@ -42,57 +42,53 @@
   </div>
 </section><!-- End Steps Section -->
 
-<!-- ======= Services Section ======= -->
-<section id="services" class="services section-bg">
+</section><!-- End Services Section -->
+<section id="portfolio" class="portfolio section-bg">
   <div class="container">
-    <div class="section-title">
+
+    <div class="section-title" data-aos="fade-up">
       <h2>Start your safety journey here.</h2>
+     <div class="row" data-aos="fade-up">
+        <ul id="portfolio-flters">
+          <li class="filter-active">Get Started</li>
+        </ul>
+      </div>
     </div>
-  </div>
 
- <div class="section-title-map">
-     <iframe style="border:0; width: 400px; height: 800px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
-
-  <div class="main-container d-flex justify-content-space">
-    <!-- <div class="container"> -->
-      <div class="col-md-3 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-2">
-        <% @items.each do |item| %>
-        <div class="d-flex">
-          <% if item.photo.attached? %>
-          <% background_url = cl_image_path item.photo.key, width: 400, height: 500, crop: :fill %>
-          <% else %>
-          <% background_url = 'https://images.unsplash.com/photo-1585859537744-6e62df9b9a5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80' %>
-          <% end %>
-          <div class="item-card">
-            <div class="card-img" style= "background-image:url('<%= background_url %>')"></div>
-            <div class="item-card-body">
-              <% if current_user && current_user.photo.attached? %>
-              <%= cl_image_tag(current_user.photo.key, class: "avatar avatar-big dropdown-toggle ml-4") %>
-              <% else %>
-              <%= cl_image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQELeEyiMdyGS4I3hdD6rQ-1IS3zkwA7hAB0LTayKpG0wEUVBjdyA&s", class: "avatar avatar-big dropdown-toggle ml-4") %>
-              <% end %>
-              <div class="card_title_flex ml-2">
-                <h4 class="title"><%= item.name.capitalize %></h4>
+<div class="col-md-3 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-2">
+      <% @items.each do |item| %>
+      <div class="d-flex">
+        <% if item.photo.attached? %>
+        <% background_url = cl_image_path item.photo.key, width: 400, height: 500, crop: :fill %>
+        <% else %>
+        <% background_url = 'https://images.unsplash.com/photo-1585859537744-6e62df9b9a5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80' %>
+        <% end %>
+        <div class="item-card">
+          <div class="card-img" style= "background-image:url('<%= background_url %>')"></div>
+          <div class="item-card-body">
+            <% if current_user && current_user.photo.attached? %>
+            <%= cl_image_tag(current_user.photo.key, class: "avatar avatar-big dropdown-toggle ml-4") %>
+            <% else %>
+            <%= cl_image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQELeEyiMdyGS4I3hdD6rQ-1IS3zkwA7hAB0LTayKpG0wEUVBjdyA&s", class: "avatar avatar-big dropdown-toggle ml-4") %>
+            <% end %>
+            <div class="card_title_flex ml-2">
+              <h4 class="title"><%= item.name.capitalize %></h4>
+            </div>
+            <div class="card-footer">
+              <p class="text-muted"><i class="fas fa-shopping-cart"></i> $<%= item.price %> a day</small>
               </div>
-              <div class="card-footer">
-                <p class="text-muted"><i class="fas fa-shopping-cart"></i> $<%= item.price %> a day</small>
-                </div>
-                <div class="item-card-actions">
-                  <%= link_to 'Book item', item_path(item), id: "submitsm"%>
-                  <%#= link_to 'Edit', edit_item_path(item), class: "btn btn-dark btn-sm mr-md-3" %>
-                  <%#= link_to "Delete item", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
-                </div>
+              <div class="item-card-actions">
+                <%= link_to 'Book item', item_path(item), id: "submitsm"%>
+                <%#= link_to 'Edit', edit_item_path(item), class: "btn btn-dark btn-sm mr-md-3" %>
+                <%#= link_to "Delete item", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
               </div>
             </div>
           </div>
-          <% end %>
         </div>
+        <% end %>
       </div>
-    </div>
-        </div>
 
-  </div>
-</section><!-- End Services Section -->
+    </section>
 
 </main><!-- End #main -->
 
