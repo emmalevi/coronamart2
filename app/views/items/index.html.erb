@@ -42,29 +42,31 @@
   </div>
 </section><!-- End Steps Section -->
 
-</section><!-- End Services Section -->
+
 <section id="portfolio" class="portfolio section-bg">
   <div class="container">
 
     <div class="section-title" data-aos="fade-up">
       <h2>Start your safety journey here.</h2>
-     <div class="row" data-aos="fade-up">
+      <div class="row">
         <ul id="portfolio-flters">
           <li class="filter-active">Get Started</li>
         </ul>
       </div>
     </div>
 
-<div class="col-md-3 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-2">
+    <div class="row justify-content-md-center">
       <% @items.each do |item| %>
-      <div class="d-flex">
+      <div class="col-md-4 col-xs-12 col-sm-12">
         <% if item.photo.attached? %>
         <% background_url = cl_image_path item.photo.key, width: 400, height: 500, crop: :fill %>
         <% else %>
         <% background_url = 'https://images.unsplash.com/photo-1585859537744-6e62df9b9a5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80' %>
         <% end %>
         <div class="item-card">
-          <div class="card-img" style= "background-image:url('<%= background_url %>')"></div>
+          <div class="card-img" style= "background-image:url('<%= background_url %>')">
+              <%= link_to 'Book now', item_path(item), id: "book", class: "book-display"%>
+          </div>
           <div class="item-card-body">
             <% if current_user && current_user.avatar.attached? %>
             <%= cl_image_tag(current_user.avatar.key, class: "avatar avatar-big dropdown-toggle ml-4") %>
@@ -72,22 +74,15 @@
             <%= cl_image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQELeEyiMdyGS4I3hdD6rQ-1IS3zkwA7hAB0LTayKpG0wEUVBjdyA&s", class: "avatar avatar-big dropdown-toggle ml-4") %>
             <% end %>
             <div class="card_title_flex ml-2">
-              <h4 class="title"><%= item.name.capitalize %></h4>
-            </div>
-            <div class="card-footer">
-              <p class="text-muted"><i class="fas fa-shopping-cart"></i> $<%= item.price %> a day</small>
-
-              </div>
-              <div class="item-card-actions">
-                <%= link_to 'Book item', item_path(item), id: "submitsm"%>
-                <%#= link_to 'Edit', edit_item_path(item), class: "btn btn-dark btn-sm mr-md-3" %>
-                <%#= link_to "Delete item", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
-              </div>
-            </div>
+              <h4><%= link_to item.name.capitalize, item_path(item), id: "card-title"%></h4>
+               </div>
+              <p id="card-price">$<%= item.price %> a day</p>
+             </div>
           </div>
         </div>
         <% end %>
       </div>
+        </div>
 
     </section>
 
