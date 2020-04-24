@@ -63,8 +63,8 @@
           <div class="item-card">
             <div class="card-img" style= "background-image:url('<%= background_url %>')"></div>
             <div class="item-card-body">
-              <% if current_user && current_user.photo.attached? %>
-              <%= cl_image_tag(current_user.photo.key, class: "avatar avatar-big dropdown-toggle ml-4") %>
+              <% if current_user && current_user.avatar.attached? %>
+              <%= cl_image_tag(current_user.avatar.key, class: "avatar avatar-big dropdown-toggle ml-4") %>
               <% else %>
               <%= cl_image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQELeEyiMdyGS4I3hdD6rQ-1IS3zkwA7hAB0LTayKpG0wEUVBjdyA&s", class: "avatar avatar-big dropdown-toggle ml-4") %>
               <% end %>
