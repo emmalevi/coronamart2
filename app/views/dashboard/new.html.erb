@@ -1,9 +1,12 @@
 <section id="steps" class="steps section-bg">
   <div class="container">
-    <div class="col-12 col-md-6 col-lg-6">
+    <div class="ml-4 mb-4">
     </div>
   </div>
 </section>
+
+
+
 <section id="faq" class="faq section-bg">
   <div class="container">
     <div class="section-title">
@@ -19,6 +22,7 @@
             <% @items.each do |item| %>
             <% item.bookings.last(6).each do |booking| %>
             <li>
+              <div class="card-product">
               <i class="bx bx-help-circle icon-help"></i>
               <a data-toggle="collapse" class="collapse" href="#faq-list-1">
                 <strong><%= booking.item.name.capitalize %></strong> <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i>
@@ -27,6 +31,7 @@
                 <p>
                   Booked <%= booking.start_date.strftime('%B %d')  %> to <%= booking.user.email %>.
                 </p>
+              </div>
               </div>
             </li>
             <% end %>
@@ -48,10 +53,6 @@
             <% @items.last(6).each do |item| %>
             <li>
               <div class="card-product">
-
-                
-                
-                
                 <% if item.photo.attached? %>
                 <% background_url = cl_image_path item.photo.key, width: 400, height: 500, crop: :fill%>
                 <% else %>
@@ -66,11 +67,10 @@
                 <div class="card-buttons">
                   <p><%= link_to 'Edit', edit_item_path(item), id: "submitsm" %></p>
                   <br>
-                  <p><%= link_to "Delete item", dashboard_path(item), method: :delete, data: { confirm: "Are you sure?" }, id: "submitsm" %></p>
+                  <p><%= link_to "Delete item", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, id: "submitsm" %></p>
                 </div>
                 </div>
-                <br>
-                <br>
+
               </div>
               <br>
             </li>
