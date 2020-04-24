@@ -153,9 +153,26 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+  margin-right: 10px;
+
 }
 
 
+ul {
+  list-style-type: none;
+
+}
+
+.card-content-flex {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px
+
+
+
+
+}
 
 
 #map {
