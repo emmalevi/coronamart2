@@ -3,21 +3,26 @@ class DashboardController < ApplicationController
 		email = current_user.email.split('@')
 	  @username = email.first
 	  @items = current_user.items
-              
+  end
+    
+  def new
+    email = current_user.email.split('@')
+    @username = email.first
+    @items = current_user.items 
+    @user = current_user
+  end 
     
 
-  end
-
-    def update
+  def update
     set_booking
     @booking.update(set_params)
-    redirect_to dashboard_index_path
+    redirect_to dashboard_path
   end
 
   def destroy
   	@item = Item.find(params[:id])
   	@item.destroy
-    redirect_to dashboard_index_path
+    redirect_to dashboard_path
   	
   end
 
