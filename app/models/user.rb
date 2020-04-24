@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :items
   has_many :item_bookings, through: :items, source: :bookings
-  has_one_attached :photo
+  has_one_attached :avatar
 
 end
