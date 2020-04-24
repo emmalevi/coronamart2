@@ -48,10 +48,10 @@
 
           </div>
 
-          <div class="col-lg-5 ml-4 d-flex align-items-stretch">
-        <div style="border:0; width: 80%; height: 90px">
-   <%= cl_image_tag(@item.photo.key)%>
-      </div>
+        <div class="col-lg-5 ml-4 d-flex align-items-stretch">
+          <div style="border:0; width: 80%; height: 90px">
+            <%= cl_image_tag(@item.photo.key, width: 405)%>
+          </div>
         </div>
 
         <div class="row mt-5 justify-content-center">
