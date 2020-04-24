@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :items do
     resources :bookings
   end
-  get 'dashboard', to: 'dashboard#show'
+  resources :dashboard
 end
