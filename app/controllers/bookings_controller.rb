@@ -17,6 +17,7 @@ class BookingsController < ApplicationController
     end
   end
 
+#This really sucks
 
 
   private
