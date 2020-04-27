@@ -1059,10 +1059,21 @@ section {
 --------------------------------------------------------------*/
 .contact .info {
   padding: 30px;
-  width: 100%;
+  width: 95%;
   background: #fff;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
+
+.container-img {
+    padding-top: 30px;
+    width: 95%;
+}
+
+.container-img .lower-img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
 
 .contact .info i {
   font-size: 20px;

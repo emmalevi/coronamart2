@@ -7,86 +7,84 @@
   </div>
 </section>
 
+
+
+
 <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-title">
-          <h2> <%= @item.name %> </h2>
-          <p> <%= @item.description %> </p>
-        </div>
-
-        <div class="row no-gutters justify-content-center">
-
-          <div class="col-lg-5 d-flex align-items-stretch">
-            <div class="info">
-              <div class="address">
-                <i class="icofont-google-map">
-                  <% if current_user && current_user.avatar.attached? %>
-    <%= cl_image_tag(current_user.avatar.key, class: "avatar") %>
-
-    <% else %>
-    <%= cl_image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQELeEyiMdyGS4I3hdD6rQ-1IS3zkwA7hAB0LTayKpG0wEUVBjdyA&s", class: "avatar") %>
-    <% end %>
-                </i>
-                <h4>Owner</h4>
-                <p>Item listed by Sagi Amar</p>
-              </div>
-
-              <div class="email mt-4">
-                <i class="icofont-envelope"></i>
-                <h4>Booking rate</h4>
-                <p> <strong>$ <%= @item.price %> a day</strong></p>
-              </div>
-
-              <div class="phone mt-4">
-                <i class="icofont-phone"></i>
-                <h4>Last booking for this item</h4>
-                <p>April 17th by Alex Chernovky</p>
-              </div>
-
-            </div>
-
-          </div>
-
-        <div class="col-lg-5 ml-4 d-flex align-items-stretch">
-          <div style="border:0; width: 80%; height: 90px">
-            <%= cl_image_tag(@item.photo.key, width: 405)%>
-          </div>
-        </div>
-
-        <div class="row mt-5 justify-content-center">
-          <div class="col-lg-10">
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- End Contact Section -->
-
-
-        <div class="row mt-5 justify-content-center">
-                <div class="col-md-6 form-group">
-   <h4>Book Now for $<%=@item.price %> per day</h4>
- </p>
- <%= simple_form_for ([@item, @booking]) do |f| %>
- <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
- <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
- <div class="d-flex border-bottom pt-1 pb-2 justify-content-between">
-   <p><strong>Total price </strong></p>
-   <p><strong>$<%= @item.price %></strong></p>
- </div>
- <%= f.submit "Request Booking", id: "submit", style: "width: 100%" %>
- <% end %>
-</div>
-</div>
-</div>
-
-<div class="justify-content-center m-5">
-            <iframe style="border:20; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
-        </div>
-
-<section id="steps" class="steps section-bg mt-5">
   <div class="container">
-     </div>
+    <br>
+    <div class="section-title">
+      <h2> <%= @item.name %> </h2>
+      <p> <%= @item.description %> </p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-6 col-12">
+        <br>
+        <div class="info">
+          
+          <i class="icofont-google-map">
+          <% if current_user && current_user.avatar.attached? %>
+          <%= cl_image_tag(current_user.avatar.key, class: "avatar") %>
+          <% else %>
+          <%= cl_image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQELeEyiMdyGS4I3hdD6rQ-1IS3zkwA7hAB0LTayKpG0wEUVBjdyA&s", class: "avatar") %>
+          <% end %>
+          </i>
+          <h4>Owner</h4>
+          <p>Item listed by Sagi Amar</p>
+          
+          <div class="email mt-4">
+            <i class="icofont-envelope"></i>
+            <h4>Booking rate</h4>
+            <p> <strong>$ <%= @item.price %> a day</strong></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-12">
+        <div class=container-img>
+          <%= cl_image_tag(@item.photo.key, class:"lower-img", :crop => :fill)%>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section><!-- End Contact Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+  <section id="contact-book" class="contact">
+    <div class=container>
+    <div class="row justify-content-center">
+      
+      <div class="col-md-12 col-12 col-lg-6">
+        <h4>Book Now for $<%=@item.price %> per day</h4>
+      </p>
+      <%= simple_form_for ([@item, @booking]) do |f| %>
+      <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <div class="d-flex border-bottom pt-1 pb-2 justify-content-between">
+        <p><strong>Total price </strong></p>
+        <p><strong>$<%= @item.price %></strong></p>
+      </div>
+      <%= f.submit "Request Booking", id: "submit", style: "width: 100%" %>
+      <% end %>
+    </div>
+
+<div class="col-md-12 col-12 col-lg-6 mt-5">
+  <iframe style="border:20; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="steps" class="steps section-bg mt-5">
+<div class="container">
+</div>
 </section>

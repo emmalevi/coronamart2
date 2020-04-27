@@ -1,21 +1,26 @@
 #banner {
+  padding: 42.5vh 20vh;
+  text-align: center;
+  width: 100%;
+  height: 95vh;
+  object-fit: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
-  // background-position: center;
   padding: 200px 0;
-  background-image: url(https://images.unsplash.com/photo-1585421514738-01798e348b17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);
-  height: calc(100vh);
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(https://images.unsplash.com/photo-1585421514738-01798e348b17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);
 }
 
 #banner .container {
-  z-index: 2;
+  z-index: 0;
 }
 
 #banner h1 {
-  // margin: 0 0 10px 0;
+  // margin: 0 0 0 0;
   font-size: 35px;
   font-weight: 700;
   color: black;
-  margin-top: -100px;
+  margin-top: 0;
   margin-left: 195px;
   margin-bottom: 180px;
 }
@@ -30,17 +35,18 @@
   font-family: "Raleway", sans-serif;
   // text-transform: uppercase;
   font-weight: 500;
-  font-size: 15px;
-  letter-spacing: 1px;
+  font-size: 14px;
+  letter-spacing: 0px;
   display: inline-block;
   padding: 6px 20px;
   border-radius: 4px;
   transition: 0.5s;
   border: 2px solid black;
   color: black;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  width:180px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width:145px;
+  margin-left: 15px;
 }
 
 #banner .btn-get-started:hover {
