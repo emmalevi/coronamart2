@@ -54,8 +54,8 @@
                 <%= link_to 'Book now', item_path(item), id: "book", class: "book-display"%>
               </div>
               <div class="item-card-body">
-                <% if current_user && current_user.avatar.attached? %>
-                <%= cl_image_tag(current_user.avatar.key, class: "avatar avatar-big dropdown-toggle ml-4") %>
+                <% if item.user.avatar.attached? %>
+                <%= cl_image_tag(item.user.avatar.key, class: "avatar avatar-big dropdown-toggle ml-4") %>
                 <% else %>
                 <%= cl_image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQELeEyiMdyGS4I3hdD6rQ-1IS3zkwA7hAB0LTayKpG0wEUVBjdyA&s", class: "avatar avatar-big dropdown-toggle ml-4") %>
                 <% end %>
