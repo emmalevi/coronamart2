@@ -1,0 +1,36 @@
+<div class="action-bar-container">
+	<%if !user_signed_in?%>
+		<div class="link-action-bar">
+      <%= link_to items_path  do %>
+        <i class="far fa-compass"></i>
+        <p>Explore</p>
+      <% end %>
+		</div>
+    <div class="link-action-bar">
+      <%= link_to new_user_session_path  do %>
+        <i class="far fa-user-circle"></i>
+			  <p>Profile </p>
+      <% end %>
+		</div>
+	<% else%>
+	<div class="link-action-bar">
+		<%= link_to items_path  do %>
+			<i class="far fa-compass"></i>
+			<p>Explore</p>
+		<% end %>
+		</div>
+		<div class="link-action-bar">
+		<%= link_to new_item_path  do %>
+			<i class="far fa-plus-square"></i>
+			<p>Add Item</p>
+		<% end %>
+	</div>
+	<div class="link-action-bar">
+		<%= link_to dashboard_path  do %>
+			<i class="far fa-user-circle"></i>
+			<p>Profile</p>
+		<% end %>
+	</div>
+	<% end %>
+
+</div>

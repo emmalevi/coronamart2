@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
   def create
     @item = Item.find(params[:item_id])
     @booking = Booking.new(booking_params)
-    @booking.user_id = current_user.id
+    @booking.user = current_user
     @booking.item = @item
 
     if @booking.save

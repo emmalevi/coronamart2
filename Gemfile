@@ -19,6 +19,7 @@ gem 'webpacker'
 gem 'pundit'
 gem 'geocoder'
 gem "font-awesome-rails"
+gem 'bootstrap_jt', '~> 0.1.0'
 
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.12.0'

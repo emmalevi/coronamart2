@@ -1,0 +1,39 @@
+
+
+.action-bar-container {
+	position: fixed;
+	bottom: 0;
+	background-color: white;
+	width: 100%;
+	padding: 10px 20px;
+	justify-content: space-around;
+  display: none;
+  border-bottom: 1px solid #00000010;
+  z-index: 999;
+  
+  p {
+  
+  	font-family: FontAwesome;
+    font-size: 9px;
+    color: $black;
+  }
+
+  .far {
+  	font-family: FontAwesome;
+    font-size: 22px;
+    color: $black;
+  }
+}
+
+.link-action-bar { 
+  text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .action-bar-container {
+ 	 display: flex;
+  }
+  .navbar-container{
+  	display: none;
+  }
+}

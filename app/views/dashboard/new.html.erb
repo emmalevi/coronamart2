@@ -4,9 +4,6 @@
     </div>
   </div>
 </section>
-
-
-
 <section id="faq" class="faq section-bg">
   <div class="container">
     <div class="section-title">
@@ -14,6 +11,42 @@
     </div>
     <div class="ml-4 mb-4">
       <h4> <strong>My bookings</strong></h4>
+    </div>
+    <% if @bookings_by_me.nil? %>
+    <h3>you have no bookings yet</h3>
+    <% else %>
+    <div class="faq-list">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-lg-6">
+          <ul>
+            <% @bookings_by_me.each do |booking| %>
+            
+            <li>
+              <div class="card-product">
+                <i class="bx bx-help-circle icon-help"></i>
+                <a data-toggle="collapse" class="collapse" href="#faq-list-1">
+                  <strong><%= booking.item.name.capitalize %></strong> <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i>
+                </a>
+                <div id="faq-list-1" class="collapse show">
+                  <p>
+                    Booked <%= booking.start_date  %>
+                  </p>
+                </div>
+              </div>
+            </li>
+            <% end %>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</section><!-- End F.A.Q Section -->
+<section id="faq" class="faq section-bg">
+  <div class="container">
+    <div class="ml-4 mb-4">
+      <h4> <strong>Who has booked your item?</strong></h4>
     </div>
     <div class="faq-list">
       <div class="row justify-content-center">
@@ -23,15 +56,15 @@
             <% item.bookings.last(6).each do |booking| %>
             <li>
               <div class="card-product">
-              <i class="bx bx-help-circle icon-help"></i>
-              <a data-toggle="collapse" class="collapse" href="#faq-list-1">
-                <strong><%= booking.item.name.capitalize %></strong> <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i>
-              </a>
-              <div id="faq-list-1" class="collapse show">
-                <p>
-                  Booked <%= booking.start_date.strftime('%B %d')  %> to <%= booking.user.email %>.
-                </p>
-              </div>
+                <i class="bx bx-help-circle icon-help"></i>
+                <a data-toggle="collapse" class="collapse" href="#faq-list-1">
+                  <strong><%= booking.item.name.capitalize %></strong> <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i>
+                </a>
+                <div id="faq-list-1" class="collapse show">
+                  <p>
+                    Booked <%= booking.start_date  %> to <%= booking.user.email %>.
+                  </p>
+                </div>
               </div>
             </li>
             <% end %>
@@ -42,42 +75,42 @@
     </div>
   </div>
   </section><!-- End F.A.Q Section -->
-  <section id="features" class="features">
+  <section id="faq" class="faq section-bg">
     <div class="container">
       <div class="ml-4 mb-4">
         <h4> <strong>My items</strong></h4>
       </div>
-      <div class="row justify-content-center">
-        <div class="col-12 col-md-6 col-lg-6">
-          <ul>
-            <% @items.last(6).each do |item| %>
-            <li>
-              <div class="card-product">
-                <% if item.photo.attached? %>
-                <% background_url = cl_image_path item.photo.key, width: 400, height: 500, crop: :fill%>
-                <% else %>
-                <% background_url = 'https://images.unsplash.com/photo-1585859537744-6e62df9b9a5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80' %>
-                <% end %>
-                <img src= <%= background_url %>>
-                <div class="card-content-flex">
-                <div class="card-product-infos">
-                  <h2><%= item.name.capitalize %></h2>
-                  <p><%= item.description %></p>
+      <div class="faq-list">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-6 col-lg-6">
+            <ul>
+              <% @items.last(6).each do |item| %>
+              <li>
+                <div class="card-product">
+                  <% if item.photo.attached? %>
+                  <% background_url = cl_image_path item.photo.key, width: 400, height: 500, crop: :fill%>
+                  <% else %>
+                  <% background_url = 'https://images.unsplash.com/photo-1585859537744-6e62df9b9a5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80' %>
+                  <% end %>
+                  <img src= <%= background_url %>>
+                  <div class="card-content-flex">
+                    <div class="card-product-infos">
+                      <h2><%= item.name.capitalize %></h2>
+                    </div>
+                    <div class="card-buttons" style="margin-bottom: 25px;">
+                      <p><%= link_to 'Edit', edit_item_path(item), id: "submitsm" %></p>
+                      <br>
+                      <p><%= link_to "Delete", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, id: "submitsm" %></p>
+                    </div>
+                  </div>
                 </div>
-                <div class="card-buttons">
-                  <p><%= link_to 'Edit', edit_item_path(item), id: "submitsm" %></p>
-                  <br>
-                  <p><%= link_to "Delete item", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, id: "submitsm" %></p>
-                </div>
-                </div>
-
-              </div>
-              <br>
-            </li>
-            <% end %>
-          </ul>
-          
+                <br>
+              </li>
+              <% end %>
+            </ul>
+            
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+    <%= render  "shared/action-bar" %>

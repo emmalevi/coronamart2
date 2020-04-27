@@ -1,89 +1,74 @@
 <!-- ======= Main banner ======= -->
 <section id="banner" class="d-flex flex-column justify-content-center align-items-center">
-  <div class="container text-center text-md-left">
-    <h1>World's first marketplace for Corona items.</h1>
-  </div>
   <!-- <a href="#about" class="btn-get-started scrollto">Get Started</a> -->
-  <form>
-    <input class="btn-get-started scrollto" name="query" type="search" placeholder="Face mask" aria-label="Search" value="<%= params[:query] %>">
-    <button class="btn btn-dark" type="submit">
-      Search
-    </button>
-  </form>
-</section><!-- End Banner -->
-
-
-<!-- ======= Steps Section ======= -->
-<section id="steps" class="steps section-bg">
   <div class="container">
-
-    <div class="row no-gutters">
-
-      <div class="col-lg-4 col-md-6 content-item">
-        <span>01</span>
-        <h4>Earn extra <strong>$</strong></h4>
-        <p>Trade your items and earn daily dollars for each booking you make. Yes, it is as simple as that.</p>
+    <div class="row">
+      <div class="col-12 col-lg-12 col-md-12">
+      <form>
+        <input class="btn-get-started scrollto" name="query" type="search" placeholder="Face mask" aria-label="Search" value="<%= params[:query] %>">
+        <button class="btn btn-dark" type="submit">
+        Search
+        </button>
+      </form>
       </div>
-
-      <div class="col-lg-4 col-md-6 content-item">
-        <span>02</span>
-        <h4>Find the <strong>best deals</strong></h4>
-        <p>Your favorite stores are closed or run out of safety supplies? We've got your back. Our users offer you the best deals.</p>
-      </div>
-
-      <div class="col-lg-4 col-md-6 content-item">
-        <span>03</span>
-        <h4>Keep <strong>safe</strong></h4>
-        <p>Having trouble with social distancing? Us too. Keep safe while locked down and trade the latest safety items near you.</p>
-      </div>
-
     </div>
-
   </div>
-</section><!-- End Steps Section -->
-
-
-<section id="portfolio" class="portfolio section-bg">
-  <div class="container">
-
-    <div class="section-title" data-aos="fade-up">
-      <h2>Start your safety journey here.</h2>
-      <div class="row">
-        <ul id="portfolio-flters">
-          <li class="filter-active">Get Started</li>
-        </ul>
+  </section><!-- End Banner -->
+  <!-- ======= Steps Section ======= -->
+  <section id="steps" class="steps section-bg">
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-lg-4 col-md-4 col-12 p-4 content-item">
+          <span>01</span>
+          <h4>Earn extra <strong>$</strong></h4>
+          <p>Trade your items and earn daily dollars for each booking you make. Yes, it is as simple as that.</p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12 p-4 content-item">
+          <span>02</span>
+          <h4>Find <strong>deals</strong></h4>
+          <p>Your favorite stores are closed or run out of safety supplies? We've got your back. Our users offer you the best deals.</p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12 p-4 content-item">
+          <span>03</span>
+          <h4>Stay <strong>safe</strong></h4>
+          <p>Having trouble with social distancing? Us too. Keep safe while locked down and trade the latest safety items near you.</p>
+        </div>
       </div>
     </div>
-
-    <div class="row justify-content-md-center">
-      <% @items.each do |item| %>
-      <div class="col-md-4 col-xs-12 col-sm-12">
-        <% if item.photo.attached? %>
-        <% background_url = cl_image_path item.photo.key, width: 400, height: 500, crop: :fill %>
-        <% else %>
-        <% background_url = 'https://images.unsplash.com/photo-1585859537744-6e62df9b9a5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80' %>
-        <% end %>
-        <div class="item-card">
-          <div class="card-img" style= "background-image:url('<%= background_url %>')">
-              <%= link_to 'Book now', item_path(item), id: "book", class: "book-display"%>
-          </div>
-          <div class="item-card-body">
-            <% if current_user && current_user.avatar.attached? %>
-            <%= cl_image_tag(current_user.avatar.key, class: "avatar avatar-big dropdown-toggle ml-4") %>
+    </section><!-- End Steps Section -->
+    <section id="portfolio" class="portfolio section-bg">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Start your safety journey here.</h2>
+        </div>
+        <ul class="grid-container">
+          <% @items.each do |item| %>
+          <li>
+            <% if item.photo.attached? %>
+            <% background_url = cl_image_path item.photo.key, width: 400, height: 500, crop: :fill %>
             <% else %>
-            <%= cl_image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQELeEyiMdyGS4I3hdD6rQ-1IS3zkwA7hAB0LTayKpG0wEUVBjdyA&s", class: "avatar avatar-big dropdown-toggle ml-4") %>
+            <% background_url = 'https://images.unsplash.com/photo-1585859537744-6e62df9b9a5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80' %>
             <% end %>
-            <div class="card_title_flex ml-2">
-              <h4><%= link_to item.name.capitalize, item_path(item), id: "card-title"%></h4>
-               </div>
-              <p id="card-price">$<%= item.price %> a day</p>
-             </div>
-          </div>
+            <div class="item-card">
+              <div class="card-img" style= "background-image:url('<%= background_url %>')">
+                <%= link_to 'Book now', item_path(item), id: "book", class: "book-display"%>
+              </div>
+              <div class="item-card-body">
+                <% if current_user && current_user.avatar.attached? %>
+                <%= cl_image_tag(current_user.avatar.key, class: "avatar avatar-big dropdown-toggle ml-4") %>
+                <% else %>
+                <%= cl_image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQELeEyiMdyGS4I3hdD6rQ-1IS3zkwA7hAB0LTayKpG0wEUVBjdyA&s", class: "avatar avatar-big dropdown-toggle ml-4") %>
+                <% end %>
+                <div class="card_title_flex ml-2">
+                  <h4><%= link_to item.name.capitalize, item_path(item), id: "card-title"%></h4>
+                </div>
+                <p id="card-price">$<%= item.price %> a day</p>
+              </div>
+            </div>
+          </li>
+          <% end %>
+        </ul>
         </div>
-        <% end %>
-      </div>
-        </div>
-
     </section>
-
-</main><!-- End #main -->
+    </main><!-- End #main -->
+    <%= render "shared/action-bar"%>

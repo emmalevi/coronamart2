@@ -3,6 +3,7 @@ class DashboardController < ApplicationController
 		email = current_user.email.split('@')
 	  @username = email.first
 	  @items = current_user.items
+    @bookings_by_me = Booking.where(user_id: current_user.id)
   end
     
   def new
@@ -10,6 +11,7 @@ class DashboardController < ApplicationController
     @username = email.first
     @items = current_user.items 
     @user = current_user
+    @bookings_by_me = Booking.where(user_id: current_user.id)
   end 
     
 
